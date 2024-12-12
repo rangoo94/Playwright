@@ -68,79 +68,79 @@ const config: PlaywrightTestConfig = {
     reporter: [
         ['junit', { outputFile: 'results.xml' }],
         ['html', { outputFolder: 'playwright-report', open: 'never' }],
-        // [
-        //     'playwright-qase-reporter',
-        //     {
-        //         debug: true,
-        //         testops: {
-        //             api: {
-        //                 token: process.env.QASE_TOKEN,
-        //             },
-        //             project: process.env.QASE_PROJECT_CODE,
-        //             uploadAttachments: true,
-        //             run: {
-        //                 complete: true,
-        //             },
-        //         },
-        //     },
-        // ],
-        // [
-        //     '@alex_neo/playwright-azure-reporter',
-        //     {
-        //         orgUrl: `https://dev.azure.com/${process.env.ADO_ORGANIZATION}`,
-        //         token: process.env.ADO_TOKEN,
-        //         planId: 398,
-        //         projectName: process.env.ADO_PROJECT,
-        //         logging: true,
-        //         testRunTitle: 'Playwright Test Run',
-        //         publishTestResultsMode: 'testRun',
-        //         uploadAttachments: true,
-        //         attachmentsType: ['screenshot', 'video', 'trace'],
-        //         testRunConfig: {
-        //             owner: {
-        //                 displayName: process.env.TEST_OWNER,
-        //             },
-        //             comment: 'Playwright Test Run',
-        //             // the configuration ids of this test run, use
-        //             // https://dev.azure.com/{organization}/{project}/_apis/test/configurations to get the ids of  your project.
-        //             // if multiple configuration ids are used in one run a testPointMapper should be used to pick the correct one,
-        //             // otherwise the results are pushed to all.
-        //             configurationIds: [46],
-        //         },
-        //     } as AzureReporterOptions
-        // ],
-        // ['./utils/reporter/StepReporter.ts'],
-        // ['./utils/reporter/AccessibilityReporter.ts'],
-        // ['ortoni-report', reportConfig],
-        // ['allure-playwright',
-        //     {
-        //         detail: false, //false to don't include the code as sub step
-        //         suiteTitle: false,
-        //         environmentInfo: {
-        //             OS: os.platform(), //os name for example darwin
-        //             Architecture: os.arch(), //architecture for example arm64
-        //             NodeVersion: process.version, //node version
-        //         },
-        //         categories: [ //To classify errors by category
-        //             {
-        //                 name: 'Missing file errors',
-        //                 messageRegex: '.*ENOENT: no such file or directory.*'
-        //             },
-        //             {
-        //                 name: 'Internal Server Error',
-        //                 messageRegex: '.*Internal Server Error.*',
-        //             },
-        //             {
-        //                 name: 'Timeout errors',
-        //                 messageRegex: '.*timeout.*'
-        //             },
-        //             {
-        //                 name: 'Accessibility',
-        //                 messageRegex: '.*accessibility.*'
-        //             }
-        //         ],
-        //     }
-        // ]
+        [
+            'playwright-qase-reporter',
+            {
+                debug: true,
+                testops: {
+                    api: {
+                        token: process.env.QASE_TOKEN,
+                    },
+                    project: process.env.QASE_PROJECT_CODE,
+                    uploadAttachments: true,
+                    run: {
+                        complete: true,
+                    },
+                },
+            },
+        ],
+        [
+            '@alex_neo/playwright-azure-reporter',
+            {
+                orgUrl: `https://dev.azure.com/${process.env.ADO_ORGANIZATION}`,
+                token: process.env.ADO_TOKEN,
+                planId: 398,
+                projectName: process.env.ADO_PROJECT,
+                logging: true,
+                testRunTitle: 'Playwright Test Run',
+                publishTestResultsMode: 'testRun',
+                uploadAttachments: true,
+                attachmentsType: ['screenshot', 'video', 'trace'],
+                testRunConfig: {
+                    owner: {
+                        displayName: process.env.TEST_OWNER,
+                    },
+                    comment: 'Playwright Test Run',
+                    // the configuration ids of this test run, use
+                    // https://dev.azure.com/{organization}/{project}/_apis/test/configurations to get the ids of  your project.
+                    // if multiple configuration ids are used in one run a testPointMapper should be used to pick the correct one,
+                    // otherwise the results are pushed to all.
+                    configurationIds: [46],
+                },
+            } as AzureReporterOptions
+        ],
+        ['./utils/reporter/StepReporter.ts'],
+        ['./utils/reporter/AccessibilityReporter.ts'],
+        ['ortoni-report', reportConfig],
+        ['allure-playwright',
+            {
+                detail: false, //false to don't include the code as sub step
+                suiteTitle: false,
+                environmentInfo: {
+                    OS: os.platform(), //os name for example darwin
+                    Architecture: os.arch(), //architecture for example arm64
+                    NodeVersion: process.version, //node version
+                },
+                categories: [ //To classify errors by category
+                    {
+                        name: 'Missing file errors',
+                        messageRegex: '.*ENOENT: no such file or directory.*'
+                    },
+                    {
+                        name: 'Internal Server Error',
+                        messageRegex: '.*Internal Server Error.*',
+                    },
+                    {
+                        name: 'Timeout errors',
+                        messageRegex: '.*timeout.*'
+                    },
+                    {
+                        name: 'Accessibility',
+                        messageRegex: '.*accessibility.*'
+                    }
+                ],
+            }
+        ]
     ],
     /* Configure projects for major browsers */
     projects: [
