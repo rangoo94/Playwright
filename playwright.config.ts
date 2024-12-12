@@ -111,7 +111,7 @@ const config: PlaywrightTestConfig = {
         // ],
         ['./utils/reporter/StepReporter.ts'],
         ['./utils/reporter/AccessibilityReporter.ts'],
-        ['ortoni-report', reportConfig],
+        // ['ortoni-report', reportConfig],
         ['allure-playwright',
             {
                 detail: false, //false to don't include the code as sub step
